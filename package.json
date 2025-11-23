@@ -1,0 +1,22 @@
+{
+  "name": "slidev",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "types": "./worker-configuration.d.ts",
+  "scripts": {
+    "build": "rimraf dist && tsx scripts/build.ts",
+    "new": "slidev new --base slides/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/prompts": "^2.4.9",
+    "fast-glob": "^3.3.3",
+    "prompts": "^2.4.2",
+    "rimraf": "^6.1.2",
+    "tinyexec": "^1.0.2",
+    "tsx": "^4.20.6"
+  }
+}
