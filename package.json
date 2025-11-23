@@ -6,7 +6,7 @@
   "types": "./worker-configuration.d.ts",
   "scripts": {
     "build": "rimraf dist && tsx scripts/build.ts",
-    "new": "slidev new --base slides/"
+    "new": "tsx scripts/new-slide.ts"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,10 @@
     "prompts": "^2.4.2",
     "rimraf": "^6.1.2",
     "tinyexec": "^1.0.2",
-    "tsx": "^4.20.6"
+    "tsx": "^4.20.6",
+    "@slidev/cli": "^52.9.1",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest",
+    "vue": "^3.5.24"
   }
 }
