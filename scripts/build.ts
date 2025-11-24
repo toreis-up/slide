@@ -32,13 +32,12 @@ const changedSlides = getChangedSlides()
 const slides = allSlides.filter(s => {
   const distStalePath = `dist-stale/${s.dir.replace('slides/', '')}`
 
-  if (!existsSync(distStalePath)) return true
-
   if (changedSlides) {
     return changedSlides.includes(s.dir.replace('slides/', ''))
   }
 
-  return true
+  if (!existsSync(distStalePath)) return true;
+  return false;
 })
 
 await Promise.all(
