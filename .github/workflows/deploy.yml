@@ -1,0 +1,29 @@
+name: Deploy Slides
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy Slidev Slides to Cloudflare Workers
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Install dependencies
+        run: npm install -g pnpm && pnpm install
+      - name: Build Slidev Slides
+        run: pnpm build
+      - name: Publish to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --env production
+          environment: production
+      - name: Post Deployment Message
+        run: echo "Slidev slides have been successfully deployed to Cloudflare Workers!"
