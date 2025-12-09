@@ -1,2 +1,7 @@
 packages:
-  - 'slides/*/'
+  - slides/*/
+
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
+  - workerd
